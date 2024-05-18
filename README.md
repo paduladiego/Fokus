@@ -1,4 +1,5 @@
 <table>
+<tr>
 <td>
 
 ># Foku
@@ -162,4 +163,5 @@ This project was created by PADULA One. You can contact me at [the@padula.one](<
 
 
 </td>
+</tr>
 </table>
