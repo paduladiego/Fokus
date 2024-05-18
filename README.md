@@ -74,4 +74,4 @@ If you wish to contribute to this project, follow the instructions below:
 
 ## Author
 
-This project was created by PADULA One. You can contact me at [the@padula.one]<mailto:the@padula.one>.
+This project was created by PADULA One. You can contact me at [the@padula.one](<mailto:the@padula.one>).
