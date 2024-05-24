@@ -1,3 +1,9 @@
+/**
+ * O código JavaScript cria um aplicativo de gerenciamento de tarefas que permite aos usuários adicionar, 
+ * editar e remover tarefas, com funcionalidade de conclusão de tarefas.
+ * The JavaScript code creates a task management application that allows users to add, edit, and remove
+ * tasks, with task completion functionality.
+ */
 const formAdicionarTarefa = document.querySelector('.app__form-add-task');
 const textArea = document.querySelector('.app__form-textarea');
 const ulTarefas = document.querySelector('.app__section-task-list');
@@ -12,16 +18,34 @@ let tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
 let tarefaSelecionada = null;
 let liTarefaSelecionada = null;
 
+/**
+ * A função atualizarTarefas() salva o array 'tarefas' no localStorage como uma string JSON.
+ * The function atualizarTarefas() saves the 'tarefas' array to the localStorage as a JSON string.
+ */
 function atualizarTarefas() {
 	localStorage.setItem('tarefas', JSON.stringify(tarefas));
 }
+/**
+ * A função `limparParafagradoEmAndamento` limpa o conteúdo do elemento parágrafo `paragrafoTarefaEmAndamento`.
+ * The function `limparParafagradoEmAndamento` clears the content of the paragraph element
+ * `paragrafoTarefaEmAndamento`.
+ */
 function limparParafagradoEmAndamento() {
 	paragrafoTarefaEmAndamento.textContent = '';
 }
+/**
+ * A função `limparNovaTarefa` limpa o conteúdo de um elemento textarea
+ * The function `limparNovaTarefa` clears the content of a text area element.
+ */
 function limparNovaTarefa() {
 	textArea.value = '';
 }
 
+/**
+ * A função "limpaEscondeNovaTarefa" limpa e oculta um formulário de nova tarefa enquanto exibe o botão de adicionar tarefa.
+ * The function "limpaEscondeNovaTarefa" clears and hides a new task form while showing the add task
+ * button.
+ */
 function limpaEscondeNovaTarefa() {
 	limparNovaTarefa();
 	formAdicionarTarefa.classList.toggle('hidden');
@@ -35,6 +59,26 @@ btnDeletarNovaTarefa.onclick = () => {
 btnCancelarNovaTarefa.onclick = () => {
 	limpaEscondeNovaTarefa();
 };
+/**
+ *  * A função "criarElementoTarefa" cria um elemento de tarefa com opções para editar e marcar como concluído.
+ * @param tarefa - A função `criarElementoTarefa(tarefa)` é usada para criar um elemento de tarefa no
+ * HTML com base no objeto de tarefa fornecido `tarefa`. A função cria vários elementos HTML como
+ * `li`, `svg`, `p` e `button` para representar a tarefa.
+ * @returns A função `criarElementoTarefa` está retornando um item de lista (`<li>`)
+ * que representa uma tarefa. O elemento da tarefa inclui um ícone, um parágrafo de descrição e um
+ * botão de edição. O elemento da tarefa é personalizado com base no objeto de tarefa passado para a função, como
+ * definir o texto da descrição, habilitar/desabilitar o botão de edição e adicionar event listeners para
+ * conclusão da tarefa.
+ * The function "criarElementoTarefa" creates a task element with options to edit and mark as complete.
+ * @param tarefa - The function `criarElementoTarefa(tarefa)` is used to create a task element in the
+ * HTML based on the provided task object `tarefa`. The function creates various HTML elements like
+ * `li`, `svg`, `p`, and `button` to represent the task.
+ * @returns The function `criarElementoTarefa` is returning a dynamically created list item (`<li>`)
+ * element that represents a task. The task element includes an icon, a description paragraph, and an
+ * edit button. The task element is customized based on the task object passed to the function, such as
+ * setting the description text, enabling/disabling the edit button, and adding event listeners for
+ * task completion
+ */
 function criarElementoTarefa(tarefa) {
 	// declara todas as constante de html
 	const li = document.createElement('li');
@@ -67,7 +111,7 @@ function criarElementoTarefa(tarefa) {
 	if (tarefa.concluida) {
 		li.classList.add('app__section-task-list-item-complete');
 		btnEditar.setAttribute('disabled', true);
-        limparParafagradoEmAndamento();
+		limparParafagradoEmAndamento();
 	} else {
 		// adicionar item da lista para andamento
 		li.onclick = () => {
@@ -75,7 +119,7 @@ function criarElementoTarefa(tarefa) {
 				e.classList.remove('app__section-task-list-item-active');
 			});
 			if (tarefaSelecionada == tarefa) {
-                limparParafagradoEmAndamento();
+				limparParafagradoEmAndamento();
 				tarefaSelecionada = null;
 				liTarefaSelecionada = null;
 				return;
@@ -144,6 +188,17 @@ document.addEventListener('FocoFinalizado', () => {
 	}
 });
 
+/**
+ * A função removerTarefas remove tarefas da lista de tarefas com base em se estão concluídas ou não e atualiza a lista de tarefas de acordo.
+ * @param taferasCompletas - taferasCompletas é um parâmetro booleano que determina se
+ * remover tarefas concluídas ou todas as tarefas. Se taferasCompletas for verdadeiro, a função removerá apenas
+ * tarefas concluídas; caso contrário, removerá todas as tarefas.
+ * The function `removerTarefas` removes tasks from the task list based on whether they are complete or
+ * not and updates the task list accordingly.
+ * @param taferasCompletas - `taferasCompletas` is a boolean parameter that determines whether to
+ * remove completed tasks or all tasks. If `taferasCompletas` is true, the function will remove only
+ * completed tasks; otherwise, it will remove all tasks.
+ */
 const removerTarefas = (taferasCompletas) => {
 	const seletorTarefasCompletas = taferasCompletas ? '.app__section-task-list-item-complete' : '.app__section-task-list-item';
 	document.querySelectorAll(seletorTarefasCompletas).forEach((el) => {
