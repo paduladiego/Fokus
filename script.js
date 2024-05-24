@@ -13,8 +13,8 @@ const somPlay = new Audio('./sons/play.wav');
 const somBeep = new Audio('./sons/beep.mp3');
 const tempoTela = document.querySelector('#timer');
 
-// let temporizadorEmSegundos = 1500;
-let temporizadorEmSegundos = 5; //testes
+let temporizadorEmSegundos = 1500;
+// let temporizadorEmSegundos = 5; //testes
 let intervaloId = null;
 
 musicaInput.addEventListener('change', () => {
@@ -57,8 +57,8 @@ function alteracaoContexto(contexto) {
 		case 'foco':
 			titulo.innerHTML = 'Otimize sua produtividade,<br><strong class="app__title-strong">mergulhe no que importa.</strong>';
 			focusBtn.classList.add('active');
-			// temporizadorEmSegundos = 1500;
-			temporizadorEmSegundos = 5 //testes
+			temporizadorEmSegundos = 1500;
+			// temporizadorEmSegundos = 5 //testes
 			break;
 		case 'descanso-curto':
 			titulo.innerHTML = 'Que tal dar uma respirada?<br><strong class="app__title-strong">Faça uma pausa curta!</strong>';
