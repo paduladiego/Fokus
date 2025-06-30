@@ -1,4 +1,4 @@
-| <h1> Foku | <h1>Foku |
+| <h1> Fokus | <h1>Fokus |
 | :--- | :--- | 
 | Estudo de JS - Projeto Pomodoro | Study of JS - Pomodoro Project|
 | <h2>Estudo de Automação de Foco e Pausa com JavaScript |  <h2>Study of Focus and Break Automation with JavaScript |
